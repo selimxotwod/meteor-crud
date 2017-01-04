@@ -1,0 +1,40 @@
+<head>
+  <title>PLaylist</title>
+</head>
+
+<body>
+  <h1>Reactive students</h1>
+
+
+</body>
+
+<template name="mainLayout">
+    <main>
+        {{>Template.dynamic template=content}}
+    </main>
+</template>
+
+<template name="eleves">
+    Nom : <input type="text" class="nom">
+    Age : <input type="text" class="age">
+    <input type="submit" value="OK" class="but">
+    <ul>
+        {{#each all_eleves}}
+        <li> Nom : {{ name }} | Age : {{ age }}
+            <input type="submit" class=" suppr" value="Supprimer" data-id="{{_id}}">
+            Modifier
+            <input type="text" class="update-nom" placeholder="Nom">
+            <input type="text" class="update-age" placeholder="Age">
+            <input type="submit" class="update" value="Update" data-id="{{_id}}">
+            <a href={{pathForPost}}>Voir</a>
+        </li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="eleveSingle">
+    Nom : {{ sidebar.name }}
+    Age : {{ sidebar.age }}
+</template>
+
+
